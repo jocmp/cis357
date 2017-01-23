@@ -64,9 +64,7 @@ for index in 1...10 {
 }
 
 // Problem #9
-//for i = 10; i <= 0; i-- {
-//    print(i)
-//}
+
 
 // Problem #10
 let x = 2
