@@ -199,8 +199,8 @@ var famousLastWords = ["the cow jumped over the moon.", "three score and four ye
 
 print(famousLastWords.map({ (lastWord: String) -> String in
     let capitalizeRange = lastWord.startIndex..<lastWord.index(lastWord.startIndex, offsetBy: 1)
-    
     let restOfWordRange = lastWord.index(lastWord.startIndex, offsetBy: 1)..<lastWord.endIndex
+    
     return lastWord.substring(with: capitalizeRange).uppercased() + lastWord.substring(with: restOfWordRange)
 }))
 
@@ -212,24 +212,27 @@ enum Bee: String {
     case Larva = "Larva"
 }
 
-var beeHive: [(Bee, (Bee) -> String)] = []
-
 func showYourself(bee: Bee) -> String {
     return "I am a \(bee.rawValue)"
 }
 
+// Advanced fizz-buzz implementation, O(1) time
 func assignHiveMember(post: Int) -> (Bee, (Bee) -> String) {
+    let currentBee: Bee
     switch post {
-    case let myPost where myPost % 5 == 0 && myPost % 3 == 0:
-        return (Bee.Queen, showYourself)
-    case let myPost where myPost % 5 == 0:
-        return (Bee.Worker, showYourself)
-    case let myPost where myPost % 3 == 0:
-        return (Bee.Drone, showYourself)
-    default:
-        return (Bee.Larva, showYourself)
+        case let queenPost where queenPost % 5 == 0 && queenPost % 3 == 0:
+            currentBee = .Queen
+        case let workerPost where workerPost % 5 == 0:
+            currentBee = .Worker
+        case let dronePost where dronePost % 3 == 0:
+            currentBee = .Drone
+        default:
+            currentBee = .Larva
     }
+    return (currentBee, showYourself)
 }
+
+var beeHive: [(Bee, (Bee) -> String)] = []
 
 for b in 1...20 {
     beeHive.append(assignHiveMember(post: b))
