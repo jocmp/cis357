@@ -222,26 +222,36 @@ enum Bee : String {
 	case Larva = "Larva"
 }
 
-var BeeHive: [(Bee, (Bee) -> String)] = []
-
-func showYourself(bee:Bee) -> String{
-	return "I am a \(bee.rawValue)"
+func imAB(bee:Bee) -> String {
+	return "I am a very scary \(bee.rawValue)"
 }
+
+func hearMeRoar(bee:Bee)-> String {
+	return "Hear my \(bee.rawValue) roaaaarrr!"
+}
+
+let beeActivities:[(Bee)->String] = [imAB, hearMeRoar]
+
+var BeeHive: [(Bee, (Bee) -> String)] = []
 
 func assignHiveMember(post:Int) -> (Bee, (Bee)->String) {
 	switch post{
 		case let myPost where myPost%5 == 0 && myPost%3 == 0:
-			return (Bee.Queen, showYourself)
+			return (Bee.Queen, assignHiveMemberActivity(attitude:post))
 		case let myPost where myPost%5 == 0:
-			return (Bee.Worker, showYourself)
+			return (Bee.Worker, assignHiveMemberActivity(attitude:post))
 		case let myPost where myPost%3 == 0:
-			return (Bee.Drone, showYourself)
+			return (Bee.Drone, assignHiveMemberActivity(attitude:post))
 		default:
-			return (Bee.Larva, showYourself)
+			return (Bee.Larva, assignHiveMemberActivity(attitude:post))
 	}
 }
 
-for b in 1...20 {
+func assignHiveMemberActivity(attitude:Int) -> (Bee)->String {
+	return beeActivities[attitude%beeActivities.count]
+}
+
+for b in 1...30 {
 	BeeHive.append(assignHiveMember(post:b))
 }
 
