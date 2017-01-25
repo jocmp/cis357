@@ -9,13 +9,18 @@ let myString = "hello"
 var cost = 3.14
 let cnt: Int = 2
 var shouldWe: Bool = true
-// An integer constant assigned the value of 11 hexadecimal.
+//an integer constant assigned the value of 11 hexadecimal.
 let myIntOr = Int("b", radix: 16)!
-// An integer constant assigned the binary equivalent of decimal 10.
+//an integer constant assigned the binary equivalent of decimal 10.
 let myInt2 = Int("1010", radix: 2)!
 
 // Problem #2
-print("Orwell when he said 2 + 2 = 5. It actuall equals \(2.0 + 2.0)!")
+let two: Float = 2.0
+let smartGuy: String = "Orwell"
+let restOfString = " when he said 2+2=5. It actuall equals "
+let myRealization = "\(smartGuy)\(restOfString)\(two + two)!"
+let myRealizationRealized = "\(myRealization)"
+print(myRealizationRealized)
 
 // Problem #3
 var bees: [String] = ["queen", "worker", "drone"]
@@ -37,8 +42,8 @@ for (index, bee) in bees.enumerated() {
 
 // Problem #5
 var comprehensibilityScores: Dictionary<String, Float> =
-    ["Mark Twain": 8.9, "Nathaniel Hawthorne": 5.1, "John Steinbeck": 2.3,
-     "C.S. Lewis": 9.9, "Jon Krakaur": 6.1]
+        ["Mark Twain": 8.9, "Nathaniel Hawthorne": 5.1, "John Steinbeck": 2.3,
+         "C.S. Lewis": 9.9, "Jon Krakaur": 6.1]
 
 // Problem #6
 print(comprehensibilityScores["John Steinbeck"]!)
@@ -62,12 +67,12 @@ for (author, score) in comprehensibilityScores {
 }
 
 // Problem #8
-for index in 1...10 {
+for index in 1 ... 10 {
     print(index)
 }
 
 // Problem #9
-for index in (1...10).reversed() {
+for index in (1 ... 10).reversed() {
     print(index)
 }
 
@@ -84,97 +89,104 @@ print(product)
 
 // Problem #11
 var scoresIterator = comprehensibilityScores.values.makeIterator()
-
 var sum: Float = 0
 var count: Float = 0
-
 while let i = scoresIterator.next() {
     sum += i
     count += 1
 }
-
 let average: Float = sum / count
 
-// Problem #12
+// Problem 12
 if average > 7 {
-    print("High")
+    let low: String = "High"
+    print("\(low)")
 } else if average >= 5 {
-    print("Moderate")
+    let low2: String = "Moderate"
+    print("\(low2)")
 } else {
-    print("Low")
+    let low3: String = "Low"
+    print("\(low3)")
 }
 
-//problem #13
+//problem 13
 let strOut: String
-
 switch count {
-    case 0:
-        strOut = "none"
-    case 1...3:
-        strOut = "a few"
-    case 4...9:
-        strOut = "several"
-    case 10...99:
-        strOut = "tens of"
-    case 100...999:
-        strOut = "hundreds of"
-    case 1000...999_999:
-        strOut = "thousands of"
-    case let x where x > 999_999:
-        strOut = "millions of"
-    default:
-        strOut = "Less than none"
+case 0:
+    strOut = "none"
+case 1 ... 3:
+    strOut = "a few"
+case 4 ... 9:
+    strOut = "several"
+case 10 ... 99:
+    strOut = "tens of"
+case 100 ... 999:
+    strOut = "hundreds of"
+case 1000 ... 999999:
+    strOut = "thousands of"
+case let x where x >= 1000000:
+    strOut = "millions of"
+default:
+    strOut = "we've a negative"
 }
 
-// Problem #14
+// Problem 14
 func verbalizeNumber(count: Int) -> String {
-    let strOut: String
 
+    let strOut: String
     switch count {
     case 0:
         strOut = "none"
-    case 1...3:
+    case 1 ... 3:
         strOut = "a few"
-    case 4...9:
+    case 4 ... 9:
         strOut = "several"
-    case 10...99:
+    case 10 ... 99:
         strOut = "tens of"
-    case 100...999:
+    case 100 ... 999:
         strOut = "hundreds of"
-    case 1000...999_999:
+    case 1000 ... 999999:
         strOut = "thousands of"
-    case let x where x > 999_999:
+    case let x where x >= 1000000:
         strOut = "millions of"
     default:
-        strOut = "Less than none"
+        strOut = "we've a negative"
     }
-    
     return strOut
 }
 
-// Problem #15
-var beeFactor: Int = 1
+// Problem 15
+var biggerLeaps: Int = 1
 for _ in stride(from: 1, to: 9, by: 1) {
-    print("There are \(verbalizeNumber(count: beeFactor)) of bees!")
-    beeFactor *= 10
+
+    let meaningfulString: String = "There are "
+    let meaningfulBees: String = " bees!"
+    let meaningfulFinal: String = "\(meaningfulString)\(verbalizeNumber(count: biggerLeaps))\(meaningfulBees)"
+    print("\(meaningfulFinal)")
+
+    biggerLeaps *= 10
 }
 
-// Problem #16
+// Problem 16
 func verbalizeAndShoutNumber(count: Int) -> String {
     return verbalizeNumber(count: count).uppercased()
 }
 
-// Problem #17
+// Problem 17
 func expressNumbersElegantly(count: Int, pFunc: (Int) -> String) -> String {
-
+    // Problem 15
+    var biggerLeaps: Int = 1
     var result: String = ""
-    var beeFactor: Int = 1
-    for _ in stride(from: 1, to: 9, by: 1) {
-        result += "There are \(verbalizeNumber(count: beeFactor)) of bees!\n"
-        beeFactor *= 10
+    for _ in stride(from: 1, to: count, by: 1) {
+
+        let meaningfulString: String = "There are "
+        let meaningfulBees: String = " bees!"
+        let meaningfulFinal: String = "\(meaningfulString)\(pFunc(biggerLeaps))\(meaningfulBees)"
+        result += "\(meaningfulFinal)"
+        biggerLeaps *= 10
     }
-    
     return result
+    //return pFunc(count).uppercased()
 }
 
 var WhatAmI: (Int) -> String = verbalizeNumber
@@ -193,18 +205,19 @@ var WhatAmIFancy: (Int) -> String = verbalizeNumber
 print(expressNumbersVeryElegantly(ToThePowerOf: 9, PrintNumberOfBees: WhatAmIFancy))
 
 
-// Problem #19
-var famousLastWords = ["the cow jumped over the moon.", "three score and four years ago",
-                       "lets nuc 'em Joe!", "ah, there is just something about Swift"]
+// Problem 20
+var famousLastWords = ["the cow jumped over the moon.", "three score and four years ago", "lets nuc 'em Joe!", "ah, there is just something about Swift"]
 
-print(famousLastWords.map({ (lastWord: String) -> String in
-    let capitalizeRange = lastWord.startIndex..<lastWord.index(lastWord.startIndex, offsetBy: 1)
-    
-    let restOfWordRange = lastWord.index(lastWord.startIndex, offsetBy: 1)..<lastWord.endIndex
-    return lastWord.substring(with: capitalizeRange).uppercased() + lastWord.substring(with: restOfWordRange)
+print(famousLastWords.map({ (str: String) -> String in
+    let end = str.index(str.startIndex, offsetBy: 1)
+    let range = str.startIndex ..< end
+
+    let secondRange = str.index(str.startIndex, offsetBy: 1) ..< str.endIndex
+    return str.substring(with: range).uppercased() + str.substring(with: secondRange)
 }))
 
-// Problem #20
+// Problem 20
+
 enum Bee: String {
     case Queen = "Queen"
     case Worker = "Worker"
@@ -212,7 +225,7 @@ enum Bee: String {
     case Larva = "Larva"
 }
 
-var beeHive: [(Bee, (Bee) -> String)] = []
+var BeeHive: [(Bee, (Bee) -> String)] = []
 
 func showYourself(bee: Bee) -> String {
     return "I am a \(bee.rawValue)"
@@ -231,10 +244,10 @@ func assignHiveMember(post: Int) -> (Bee, (Bee) -> String) {
     }
 }
 
-for b in 1...20 {
-    beeHive.append(assignHiveMember(post: b))
+for b in 1 ... 20 {
+    BeeHive.append(assignHiveMember(post: b))
 }
 
-beeHive.forEach({ (bee: Bee, proclamation: (Bee) -> String) in
-    print(proclamation(bee))
+BeeHive.forEach({ (bee: Bee, procFunc: (Bee) -> String) in
+    print(procFunc(bee))
 })
