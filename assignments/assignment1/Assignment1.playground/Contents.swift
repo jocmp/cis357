@@ -123,7 +123,7 @@ switch count {
     case let x where x > 999_999:
         strOut = "millions of"
     default:
-        strOut = "Less than none"
+        strOut = "less than a few"
 }
 
 // Problem #14
@@ -146,7 +146,7 @@ func verbalizeNumber(count: Int) -> String {
     case let x where x > 999_999:
         strOut = "millions of"
     default:
-        strOut = "Less than none"
+        strOut = "less than a few"
     }
     
     return strOut
@@ -155,7 +155,7 @@ func verbalizeNumber(count: Int) -> String {
 // Problem #15
 var beeFactor: Int = 1
 for _ in stride(from: 1, to: 9, by: 1) {
-    print("There are \(verbalizeNumber(count: beeFactor)) of bees!")
+    print("There are \(verbalizeNumber(count: beeFactor)) bees!")
     beeFactor *= 10
 }
 
@@ -170,7 +170,7 @@ func expressNumbersElegantly(count: Int, pFunc: (Int) -> String) -> String {
     var result: String = ""
     var beeFactor: Int = 1
     for _ in stride(from: 1, to: 9, by: 1) {
-        result += "There are \(verbalizeNumber(count: beeFactor)) of bees!\n"
+        result += "There are \(verbalizeNumber(count: beeFactor)) bees!\n"
         beeFactor *= 10
     }
     
