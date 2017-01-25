@@ -17,7 +17,7 @@ let hexidecimalEleven = Int("B", radix: 16)!
 let binaryTen = Int("1010", radix: 2)!
 
 // Problem #2
-print("Orwell when he said 2 + 2 = 5. It actuall equals \(2.0 + 2.0)!")
+print("When Orwell said 2 + 2 = 5. It actually equals \(2.0 + 2.0)!")
 
 // Problem #3
 var bees: [String] = ["queen", "worker", "drone"]
@@ -106,7 +106,7 @@ if average > 7 {
     print("Low")
 }
 
-//problem #13
+// Problem #13
 let strOut: String
 
 switch count {
