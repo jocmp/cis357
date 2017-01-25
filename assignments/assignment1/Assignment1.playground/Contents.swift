@@ -9,10 +9,12 @@ let myString = "hello"
 var cost = 3.14
 let cnt: Int = 2
 var shouldWe: Bool = true
+
 // An integer constant assigned the value of 11 hexadecimal.
-let myIntOr = Int("b", radix: 16)!
+let hexidecimalEleven = Int("B", radix: 16)!
+
 // An integer constant assigned the binary equivalent of decimal 10.
-let myInt2 = Int("1010", radix: 2)!
+let binaryTen = Int("1010", radix: 2)!
 
 // Problem #2
 print("Orwell when he said 2 + 2 = 5. It actuall equals \(2.0 + 2.0)!")
