@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */; };
+		8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */; };
 		BB33B12C1D41DA6547BCCCCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB33B1F30BDCE2344D81B93F /* LaunchScreen.storyboard */; };
 		BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33B0531C83789DCBB38E9F /* AppDelegate.swift */; };
 		BB33B38EE129F07AF8D57BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB33B64B0039C211FFF02AE3 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
+		8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 		BB33B0531C83789DCBB38E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB33B0E332BA3C81BAD37D5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB33B15788AA6B769484FE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		BB33B04B7609743A39DC654D /* Homework2 */ = {
 			isa = PBXGroup;
 			children = (
+				8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */,
+				8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */,
 				BB33B75BC9C526EB085221CF /* Info.plist */,
 				BB33B64B0039C211FFF02AE3 /* Assets.xcassets */,
 				BB33B1F30BDCE2344D81B93F /* LaunchScreen.storyboard */,
@@ -246,6 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */,
+				8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */,
 				BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */,
 				BB33BE5A2D03FF9A29E09F3D /* ViewController.swift in Sources */,
 			);
@@ -486,6 +494,7 @@
 				BB33BCD710157F326078FF0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB33B6A073DAEB41018E7FD6 /* Build configuration list for PBXNativeTarget "Homework2Tests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +503,7 @@
 				BB33BD67243AD9D46E4615F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB33BEA91EA6313FC955D01A /* Build configuration list for PBXNativeTarget "Homework2UITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +512,7 @@
 				BB33B6A335ED03F4A7129AD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
