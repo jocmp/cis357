@@ -19,25 +19,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let detectTouch = UITapGestureRecognizer(target: self, action:
-            #selector(self.dismissKeyboard))
-        self.view.addGestureRecognizer(detectTouch)
+            #selector(dismissKeyboard))
+        view.addGestureRecognizer(detectTouch)
         
         emailField.delegate = self
         passwordField.delegate = self
     }
     
     func dismissKeyboard() {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func signInPressed(_ sender: Any) {
-        if validateFields() {
-            print(Messages.congratulations)
-        }
+        validateFields()
     }
     
-    func validateFields() -> Bool {
-        return validateEmail() && validatePassword()
+    func validateFields() {
+        if validateEmail() && validatePassword() {
+             print(Messages.congratulations)
+        }
     }
     
     func validatePassword() -> Bool {
@@ -59,10 +59,10 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.emailField {
+        if textField == emailField {
             self.passwordField.becomeFirstResponder()
-        } else if validateFields() {
-            print(Messages.congratulations)
+        } else {
+            validateFields()
         }
         return true
     }
