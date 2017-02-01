@@ -19,3 +19,4 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 .DS_Store
+._.DS_Store

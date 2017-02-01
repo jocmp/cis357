@@ -4,16 +4,12 @@ import Foundation
 class ViewController: UIViewController {
 
     enum Validation {
-        static let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        private static let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         static let emailPredicate = NSPredicate(format: "SELF MATCHES %@", Validation.emailPattern)
     }
     
-    enum Messages {
-        static let congratulations = "Congratulations! You entered correct values."
-    }
-    
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var passwordField: UITextField! // implicityly unwrapped
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +26,13 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func signInPressed(_ sender: Any) {
+    @IBAction func signInPressed(_ sender: UIButton) {
         validateFields()
     }
     
     func validateFields() {
         if validateEmail() && validatePassword() {
-             print(Messages.congratulations)
+             print("Congratulations! You entered correct values.")
         }
     }
     
@@ -44,6 +40,8 @@ class ViewController: UIViewController {
         var passwordIsValid = false
         if let password = passwordField.text {
             passwordIsValid = !password.isEmpty
+        } else {
+            print("Password cannot be blank!")
         }
         return passwordIsValid
     }
@@ -52,6 +50,8 @@ class ViewController: UIViewController {
         var emailIsValid = false
         if let email = emailField.text {
             emailIsValid = Validation.emailPredicate.evaluate(with: email)
+        } else {
+            print("Invalid email address :(")
         }
         return emailIsValid
     }

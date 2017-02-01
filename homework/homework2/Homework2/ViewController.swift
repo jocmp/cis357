@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Homework2
-//
-//  Created by Josiah Campbell on 1/28/17.
-//  Copyright (c) 2017 Josiah Campbell. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 
@@ -91,7 +83,6 @@ class ViewController: UIViewController {
         return String(format:"%.2f", calculation)
     }
 }
-
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

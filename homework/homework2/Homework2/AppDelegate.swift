@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Homework2
-//
-//  Created by Josiah Campbell on 1/28/17.
-//  Copyright (c) 2017 Josiah Campbell. All rights reserved.
-//
-
 import UIKit
 
 
@@ -39,7 +31,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
-
-
-
 }
