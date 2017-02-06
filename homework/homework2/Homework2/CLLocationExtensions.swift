@@ -37,7 +37,7 @@ extension CLLocation {
     func findingPoint(withBearing: Double, atDistance: Double) -> CLLocation {
         let R = 6371.0
         
-        // compute the coordinates in radians
+         // compute the coordinates in radians
         let p1 = (self.coordinate.latitude * M_PI / 180.0, self.coordinate.longitude * M_PI / 180.0)
         
         // compute angular distance
