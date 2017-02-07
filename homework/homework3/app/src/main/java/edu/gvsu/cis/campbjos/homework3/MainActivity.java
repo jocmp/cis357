@@ -1,9 +1,11 @@
 package edu.gvsu.cis.campbjos.homework3;
 
+import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,8 +16,9 @@ import edu.gvsu.cis.campbjos.homework3.widget.CoordinateLinearLayout;
 import static java.math.RoundingMode.HALF_EVEN;
 
 /**
- * @author Josiah Campbell
  * @author Derrick Bentley
+ * @author Josiah Campbell
+ * @version Winter 2017
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate() {
+        hideKeyboard();
+
         Location source = sourceCoordinates.getLocation();
         Location destination = destinationCoordinates.getLocation();
 
@@ -70,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearAll() {
+        hideKeyboard();
+
         sourceCoordinates.clearFields();
         destinationCoordinates.clearFields();
 
@@ -79,5 +86,12 @@ public class MainActivity extends AppCompatActivity {
     private void resetResults() {
         bearingText.setText(getString(R.string.degrees, 0f));
         distanceText.setText(getString(R.string.kilometers, 0f));
+    }
+
+    private void hideKeyboard() {
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (getWindow().getDecorView() != null) {
+            manager.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
+        }
     }
 }

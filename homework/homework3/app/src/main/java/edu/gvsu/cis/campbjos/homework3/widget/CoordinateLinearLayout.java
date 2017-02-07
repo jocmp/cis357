@@ -9,6 +9,11 @@ import android.widget.LinearLayout;
 
 import edu.gvsu.cis.campbjos.homework3.R;
 
+/**
+ * @author Derrick Bentley
+ * @author Josiah Campbell
+ * @version Winter 2017
+ */
 public class CoordinateLinearLayout extends LinearLayout {
 
     private EditText latitudeText;
@@ -24,7 +29,7 @@ public class CoordinateLinearLayout extends LinearLayout {
 
     public CoordinateLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LayoutInflater.from(context).inflate(R.layout.location_view, this);
+        LayoutInflater.from(context).inflate(R.layout.coordinate_view, this);
 
         latitudeText = (EditText) findViewById(R.id.latitude);
         longitudeText = (EditText) findViewById(R.id.longitude);
