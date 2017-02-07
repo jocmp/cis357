@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         distanceText.setText(getString(R.string.kilometers, distance));
     }
 
-private float round(floatjjqq value) {
+    private float round(float value) {
         return BigDecimal.valueOf(value).setScale(2, HALF_EVEN).floatValue();
     }
 
