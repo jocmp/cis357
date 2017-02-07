@@ -8,4 +8,8 @@
     <string name="source">Source</string>
     <string name="distance">Distance</string>
     <string name="bearing">Bearing</string>
+    <string name="calculate">Calculate</string>
+
+    <string name="degrees">%1$.2f degrees</string>
+    <string name="kilometers">%1$.2f kilometers</string>
 </resources>

@@ -3,7 +3,6 @@ package edu.gvsu.cis.campbjos.homework3.widget;
 import android.content.Context;
 import android.location.Location;
 import android.util.AttributeSet;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -31,19 +30,27 @@ public class CoordinateLinearLayout extends LinearLayout {
         longitudeText = (EditText) findViewById(R.id.longitude);
     }
 
-    public void prepopulate(String lat, String lon) {
-        latitudeText.setText(lat);
-        longitudeText.setText(lon);
+    public void clearFields() {
+        latitudeText.setText(null);
+        longitudeText.setText(null);
     }
 
     public Location getLocation() {
-        double latitude = Location.convert(latitudeText.getText().toString());
-        double longitude = Location.convert(longitudeText.getText().toString());
+        double latitude = convert(latitudeText);
+        double longitude = convert(longitudeText);
 
         Location location = new Location("");
+
         location.setLatitude(latitude);
         location.setLongitude(longitude);
 
         return location;
+    }
+
+    private double convert(EditText editText) {
+        if (editText.getText().length() <= 0) {
+            return 0;
+        }
+        return Location.convert(editText.getText().toString());
     }
 }
