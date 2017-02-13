@@ -1,40 +1,43 @@
-//
-//  SettingsViewController.swift
-//  Homework2
-//
-//  Created by laker on 2/12/17.
-//  Copyright © 2017 Josiah Campbell. All rights reserved.
-//
 
 import UIKit
+
+protocol SettingsViewControllerDelegate {
+    func settingsChanged(distanceUnits: String, bearingUnits: String)
+}
 
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var picker: UIPickerView!
     var options: [String] = [String]()
     var optionsDistance: Selection = Selection(dataSet:["Kilometers", "Miles"])
-    var optionsBearing: Selection = Selection(dataSet:["Degrees", "Radians"])
+    var optionsBearing: Selection = Selection(dataSet:["Degrees", "Mils"])
     var distanceSelected:Bool = true
+    var delegate: SettingsViewControllerDelegate?
     
     @IBAction func selectDistance(_ sender: Any) {
         distanceSelected = true
         setOptions(Options:optionsDistance)
         picker.isHidden = false
-        
     }
+    
     @IBAction func selectBearing(_ sender: Any) {
         distanceSelected = false
         setOptions(Options:optionsBearing)
         picker.isHidden = false
     }
+    
     @IBOutlet weak var btnBearing: UIButton!
     @IBOutlet weak var btnDistance: UIButton!
+    
     @IBAction func cancel(_ sender: Any) {
         dismissView()
     }
     
     @IBAction func save(_ sender: Any) {
-        
+        if let d = self.delegate {
+            d.settingsChanged(distanceUnits: optionsDistance.selectedUnit(), bearingUnits: optionsBearing.selectedUnit())
+            print("whatever")
+        }
         dismissView()
     }
     
@@ -48,7 +51,7 @@ class SettingsViewController: UIViewController {
     func dismissView(){
         self.dismiss(animated:true, completion:nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +79,7 @@ class SettingsViewController: UIViewController {
     }
 
 }
+
 extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate {
     // The number of columns of data
     
@@ -101,7 +105,7 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
         if distanceSelected {
             btnDistance.setTitle(self.options[row], for: UIControlState.normal)
             self.optionsDistance.selectedIndex = row
-        }else {
+        } else {
             btnBearing.setTitle(self.options[row], for: UIControlState.normal)
             self.optionsBearing.selectedIndex = row
         }

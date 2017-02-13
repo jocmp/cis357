@@ -10,6 +10,7 @@
 		30EAF2ED1E51336100CE1E15 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAF2EC1E51336100CE1E15 /* Selection.swift */; };
 		30EE04AB1E5113DF009BDB3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */; };
 		8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */; };
+		8A2D81DA1E5152C5005D6E78 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D81D91E5152C5005D6E78 /* NavigationController.swift */; };
 		8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */; };
 		BB33B12C1D41DA6547BCCCCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB33B1F30BDCE2344D81B93F /* LaunchScreen.storyboard */; };
 		BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33B0531C83789DCBB38E9F /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		30EAF2EC1E51336100CE1E15 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
+		8A2D81D91E5152C5005D6E78 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 		BB33B0531C83789DCBB38E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB33B0E332BA3C81BAD37D5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				BB33BDBDB69111BD19368734 /* ViewController.swift */,
 				30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */,
 				30EAF2EC1E51336100CE1E15 /* Selection.swift */,
+				8A2D81D91E5152C5005D6E78 /* NavigationController.swift */,
 			);
 			path = Homework2;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */,
 				BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */,
 				30EE04AB1E5113DF009BDB3B /* SettingsViewController.swift in Sources */,
+				8A2D81DA1E5152C5005D6E78 /* NavigationController.swift in Sources */,
 				BB33BE5A2D03FF9A29E09F3D /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,14 +1,11 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SettingsViewControllerDelegate {
 
     enum Defaults {
-        static let kilometers = "kilometers"
-        static let degrees = "degrees"
-        
-        static let distance = "0.00 \(kilometers)"
-        static let bearing = "0.00 \(degrees)"
+        static let distance = "0.00 kilometers"
+        static let bearing = "0.00 degrees"
     }
     
     @IBOutlet weak var currentLatitude: DecimalMinusTextField!
@@ -19,6 +16,26 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
+    
+    var bearingUnit = CLLocation.Unit(unit: "degrees")
+    var distanceUnit = CLLocation.Unit(unit: "kilometers")
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? SettingsViewController {
+            dest.delegate = self
+        }
+    }
+    
+    func settingsChanged(distanceUnits: String, bearingUnits: String) {
+        /*
+           For your unit conversions, 1 kilometer = 0.621371 miles. 1 degree =
+           17.777777777778 mil. When displaying calculations, round to the nearest 100ths
+         */
+        distanceUnit = CLLocation.Unit(unit: distanceUnits)
+        bearingUnit = CLLocation.Unit(unit: bearingUnits)
+        calculate()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +59,11 @@ class ViewController: UIViewController {
     @IBAction func clearAllPressed(_ sender: Any) {
         dismissKeyboard()
         
-        currentLatitude.text = ""
-        currentLongitude.text = ""
+        currentLatitude.text = "43.077366"
+        currentLongitude.text = "-85.994053"
         
-        destinationLatitude.text = ""
-        destinationLongitude.text = ""
+        destinationLatitude.text = "43.077303"
+        destinationLongitude.text = "-85.993860"
         
         distanceLabel.text = Defaults.distance
         bearingLabel.text = Defaults.bearing
@@ -71,19 +88,22 @@ class ViewController: UIViewController {
     }
     
     func setDistance(current: CLLocation, destination: CLLocation) {
-        distanceLabel.text = "\(formatWithPrecision(calculation: destination.distanceInKilometers(from: current))) \(Defaults.kilometers)"
+        let distance = destination.distanceInKilometers(from: current, with: distanceUnit)
+        distanceLabel.text = "\(formatWithPrecision(calculation: distance)) \(distanceUnit.unit)"
     }
     
     func setBearing(current: CLLocation, destination: CLLocation) {
-        bearingLabel.text = "\(formatWithPrecision(calculation: current.bearingToPoint(point: destination))) \(Defaults.degrees)"
+        let bearings = current.bearingToPoint(point: destination, with: bearingUnit)
+        bearingLabel.text = "\(formatWithPrecision(calculation: bearings)) \(bearingUnit.unit)"
     }
-    
     
     func formatWithPrecision(calculation: Double) -> String {
         return String(format:"%.2f", calculation)
     }
 }
+
 extension ViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case currentLatitude:
