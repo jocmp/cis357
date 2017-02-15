@@ -20,12 +20,6 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     var bearingUnit = CLLocation.Unit(unit: "degrees")
     var distanceUnit = CLLocation.Unit(unit: "kilometers")
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? SettingsViewController {
-            dest.delegate = self
-        }
-    }
-
     func settingsChanged(distanceUnits: String, bearingUnits: String) {
         distanceUnit = CLLocation.Unit(unit: distanceUnits)
         bearingUnit = CLLocation.Unit(unit: bearingUnits)
@@ -94,6 +88,15 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     func formatWithPrecision(calculation: Double) -> String {
         return String(format:"%.2f", calculation)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSettings" {
+            if let destination = segue.destination.childViewControllers[0] as? SettingsViewController {
+                destination.delegate = self
+            }
+        }
     }
 }
 

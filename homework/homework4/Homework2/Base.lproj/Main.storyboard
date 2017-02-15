@@ -177,7 +177,7 @@
                     <navigationItem key="navigationItem" title="GeoCalculator" id="VZN-qg-rVi">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="O4E-5D-wb8">
                             <connections>
-                                <segue destination="ojT-5y-BOh" kind="show" identifier="segueToSettings" id="dp3-pc-8p9"/>
+                                <segue destination="F8w-43-yam" kind="show" identifier="segueToSettings" id="i3i-Ok-WGl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -265,7 +265,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sya-bT-d0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="-278"/>
+            <point key="canvasLocation" x="1172" y="-278.41079460269867"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wm3-iL-m1k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F8w-43-yam" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3q8-NL-R4r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ojT-5y-BOh" kind="relationship" relationship="rootViewController" id="45b-Ob-KaF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSM-Yv-j48" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232.80000000000001" y="-278.41079460269867"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

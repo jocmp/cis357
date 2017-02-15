@@ -28,12 +28,6 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var btnBearing: UIButton!
     @IBOutlet weak var btnDistance: UIButton!
- 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if (segue.identifier == "segueToSettings") {
-
-        }
-    }
     
     @IBAction func cancel(_ sender: Any) {
         dismissView()
@@ -54,8 +48,7 @@ class SettingsViewController: UIViewController {
     }
     
     func dismissView(){
-        navigationController?.popViewController(animated: true)?
-            .dismiss(animated:true, completion:nil)
+        self.dismiss(animated:true, completion:nil)
     }
 
     override func viewDidLoad() {

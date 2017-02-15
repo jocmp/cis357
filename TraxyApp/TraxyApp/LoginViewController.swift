@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     func validateFields() {
-        if validateEmail() && validatePassword() {
+        if validateEmail(email: emailField.text!) && validatePassword(password: passwordField.text!) {
              print("Congratulations! You entered correct values.")
         }
     }
@@ -41,13 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     func validateEmail(email: String) -> Bool {
-        var emailIsValid = false
-        if let email = emailField.text {
-            emailIsValid = Validation.emailPredicate.evaluate(with: email)
-        } else {
-            print("Invalid email address :(")
-        }
-        return emailIsValid
+        return Validation.emailPredicate.evaluate(with: email)
     }
 }
 
