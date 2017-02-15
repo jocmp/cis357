@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     enum Validation {
         private static let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -36,17 +36,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func validatePassword() -> Bool {
-        var passwordIsValid = false
-        if let password = passwordField.text {
-            passwordIsValid = !password.isEmpty
-        } else {
-            print("Password cannot be blank!")
-        }
-        return passwordIsValid
+    func validatePassword(password: String) -> Bool {
+        return !password.isEmpty
     }
     
-    func validateEmail() -> Bool {
+    func validateEmail(email: String) -> Bool {
         var emailIsValid = false
         if let email = emailField.text {
             emailIsValid = Validation.emailPredicate.evaluate(with: email)
@@ -57,7 +51,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailField {
             self.passwordField.becomeFirstResponder()

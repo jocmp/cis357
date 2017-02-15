@@ -25,17 +25,12 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             dest.delegate = self
         }
     }
-    
+
     func settingsChanged(distanceUnits: String, bearingUnits: String) {
-        /*
-           For your unit conversions, 1 kilometer = 0.621371 miles. 1 degree =
-           17.777777777778 mil. When displaying calculations, round to the nearest 100ths
-         */
         distanceUnit = CLLocation.Unit(unit: distanceUnits)
         bearingUnit = CLLocation.Unit(unit: bearingUnits)
         calculate()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

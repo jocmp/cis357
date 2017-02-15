@@ -28,6 +28,12 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var btnBearing: UIButton!
     @IBOutlet weak var btnDistance: UIButton!
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "segueToSettings") {
+
+        }
+    }
     
     @IBAction func cancel(_ sender: Any) {
         dismissView()
@@ -36,7 +42,6 @@ class SettingsViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         if let d = self.delegate {
             d.settingsChanged(distanceUnits: optionsDistance.selectedUnit(), bearingUnits: optionsBearing.selectedUnit())
-            print("whatever")
         }
         dismissView()
     }
@@ -49,7 +54,8 @@ class SettingsViewController: UIViewController {
     }
     
     func dismissView(){
-        self.dismiss(animated:true, completion:nil)
+        navigationController?.popViewController(animated: true)?
+            .dismiss(animated:true, completion:nil)
     }
 
     override func viewDidLoad() {
@@ -83,8 +89,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate {
     // The number of columns of data
     
-    func numberOfComponents(in: UIPickerView) -> Int
-    {
+    func numberOfComponents(in: UIPickerView) -> Int{
         return 1
     }
     

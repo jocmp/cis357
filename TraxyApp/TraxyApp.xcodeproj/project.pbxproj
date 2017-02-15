@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		8A0D8A961E3D5B5F001182A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8A951E3D5B5F001182A6 /* AppDelegate.swift */; };
-		8A0D8A981E3D5B5F001182A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8A971E3D5B5F001182A6 /* ViewController.swift */; };
+		8A0D8A981E3D5B5F001182A6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8A971E3D5B5F001182A6 /* LoginViewController.swift */; };
 		8A0D8A9B1E3D5B5F001182A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0D8A991E3D5B5F001182A6 /* Main.storyboard */; };
 		8A0D8A9D1E3D5B5F001182A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A0D8A9C1E3D5B5F001182A6 /* Assets.xcassets */; };
 		8A0D8AA01E3D5B5F001182A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0D8A9E1E3D5B5F001182A6 /* LaunchScreen.storyboard */; };
 		8A0D8AAB1E3D5B5F001182A6 /* TraxyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8AAA1E3D5B5F001182A6 /* TraxyAppTests.swift */; };
 		8A0D8AB61E3D5B5F001182A6 /* TraxyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8AB51E3D5B5F001182A6 /* TraxyAppUITests.swift */; };
+		8A22C0201E5228C8006E3B23 /* UserValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22C01F1E5228C8006E3B23 /* UserValidation.swift */; };
+		8AA15D1E1E52265E004B459A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA15D1D1E52265E004B459A /* SignUpViewController.swift */; };
+		8AA15D201E522666004B459A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA15D1F1E522666004B459A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		8A0D8A921E3D5B5F001182A6 /* TraxyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraxyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0D8A951E3D5B5F001182A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A0D8A971E3D5B5F001182A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8A0D8A971E3D5B5F001182A6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8A0D8A9A1E3D5B5F001182A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A0D8A9C1E3D5B5F001182A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A0D8A9F1E3D5B5F001182A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		8A0D8AB11E3D5B5F001182A6 /* TraxyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraxyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0D8AB51E3D5B5F001182A6 /* TraxyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraxyAppUITests.swift; sourceTree = "<group>"; };
 		8A0D8AB71E3D5B5F001182A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A22C01F1E5228C8006E3B23 /* UserValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserValidation.swift; sourceTree = "<group>"; };
+		8AA15D1D1E52265E004B459A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8AA15D1F1E522666004B459A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				8A0D8A951E3D5B5F001182A6 /* AppDelegate.swift */,
-				8A0D8A971E3D5B5F001182A6 /* ViewController.swift */,
+				8A0D8A971E3D5B5F001182A6 /* LoginViewController.swift */,
+				8AA15D1D1E52265E004B459A /* SignUpViewController.swift */,
+				8AA15D1F1E522666004B459A /* MainViewController.swift */,
 				8A0D8A991E3D5B5F001182A6 /* Main.storyboard */,
 				8A0D8A9C1E3D5B5F001182A6 /* Assets.xcassets */,
 				8A0D8A9E1E3D5B5F001182A6 /* LaunchScreen.storyboard */,
 				8A0D8AA11E3D5B5F001182A6 /* Info.plist */,
+				8A22C01F1E5228C8006E3B23 /* UserValidation.swift */,
 			);
 			path = TraxyApp;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0D8A981E3D5B5F001182A6 /* ViewController.swift in Sources */,
+				8AA15D1E1E52265E004B459A /* SignUpViewController.swift in Sources */,
+				8A0D8A981E3D5B5F001182A6 /* LoginViewController.swift in Sources */,
+				8A22C0201E5228C8006E3B23 /* UserValidation.swift in Sources */,
 				8A0D8A961E3D5B5F001182A6 /* AppDelegate.swift in Sources */,
+				8AA15D201E522666004B459A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +515,7 @@
 				8A0D8ABC1E3D5B5F001182A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A0D8ABD1E3D5B5F001182A6 /* Build configuration list for PBXNativeTarget "TraxyAppTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +524,7 @@
 				8A0D8ABF1E3D5B5F001182A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A0D8AC01E3D5B5F001182A6 /* Build configuration list for PBXNativeTarget "TraxyAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +533,7 @@
 				8A0D8AC21E3D5B5F001182A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
