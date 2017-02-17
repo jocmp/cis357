@@ -94,8 +94,7 @@
 				30EAF2EC1E51336100CE1E15 /* Selection.swift */,
 				8A8CDF1B1E568E8500AB829F /* Defaults.swift */,
 			);
-			name = Homework4;
-			path = Homework2;
+			path = Homework4;
 			sourceTree = "<group>";
 		};
 		BB33B1E5D26200A5462BC82F /* Products */ = {
@@ -295,7 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Homework2/Info.plist;
+				INFOPLIST_FILE = Homework4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gvsu.cis.campbjos.Homework4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -435,7 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Homework2/Info.plist;
+				INFOPLIST_FILE = Homework4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gvsu.cis.campbjos.Homework4;
 				PRODUCT_NAME = "$(TARGET_NAME)";

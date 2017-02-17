@@ -45,11 +45,11 @@ class CalculatorViewController: UIViewController, SettingsViewControllerDelegate
     @IBAction func clearAllPressed(_ sender: Any) {
         dismissKeyboard()
         
-        currentLatitude.text = "43.077366"
-        currentLongitude.text = "-85.994053"
+        currentLatitude.text = ""
+        currentLongitude.text = ""
         
-        destinationLatitude.text = "43.077303"
-        destinationLongitude.text = "-85.993860"
+        destinationLatitude.text = ""
+        destinationLongitude.text = ""
         
         resetResultLabels()
     }

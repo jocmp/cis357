@@ -48,9 +48,9 @@ class SettingsViewController: UIViewController {
     
     func setOptions(options o:Selection){
         options.removeAll()
-        options.append(contentsOf: o.dataSet)
+        options.append(contentsOf: o.dataSet.map { $0.capitalized })
         picker.reloadAllComponents()
-        picker.selectRow(o.selectedIndex, inComponent:0, animated: true)
+        picker.selectRow(o.selectedIndex, inComponent:0, animated: false)
     }
     
     func dismissView(){
@@ -102,7 +102,7 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if options[0] == optionsDistance.dataSet[0] {
+        if options[0].lowercased() == optionsDistance.dataSet[0] {
             btnDistance.setTitle(options[row], for: UIControlState.normal)
             optionsDistance.selectedIndex = row
         } else {
