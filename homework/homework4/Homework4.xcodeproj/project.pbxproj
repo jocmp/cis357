@@ -11,11 +11,12 @@
 		30EE04AB1E5113DF009BDB3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */; };
 		8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */; };
 		8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */; };
+		8A8CDF1C1E568E8500AB829F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CDF1B1E568E8500AB829F /* Defaults.swift */; };
 		BB33B12C1D41DA6547BCCCCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB33B1F30BDCE2344D81B93F /* LaunchScreen.storyboard */; };
 		BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33B0531C83789DCBB38E9F /* AppDelegate.swift */; };
 		BB33B38EE129F07AF8D57BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB33B64B0039C211FFF02AE3 /* Assets.xcassets */; };
 		BB33B8CE96F74F632BD2406B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB33B75BC9C526EB085221CF /* Info.plist */; };
-		BB33BE5A2D03FF9A29E09F3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33BDBDB69111BD19368734 /* ViewController.swift */; };
+		BB33BE5A2D03FF9A29E09F3D /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33BDBDB69111BD19368734 /* CalculatorViewController.swift */; };
 		BB33BF9EAA025FF6351A5CC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB33B7BA643C93B4D0444FA8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
+		8A8CDF1B1E568E8500AB829F /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		BB33B0531C83789DCBB38E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB33B0E332BA3C81BAD37D5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB33B64B0039C211FFF02AE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		BB33B9186C7029AF58EBC2B5 /* Homework4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Homework4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB33BA7FD011DB4EDF300C29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB33BDAFCCEC604312AD94B8 /* Homework4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Homework4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB33BDBDB69111BD19368734 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BB33BDBDB69111BD19368734 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		BB33BECBDBDF0A43A9EC35D8 /* Homework4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,9 +89,10 @@
 				BB33B1F30BDCE2344D81B93F /* LaunchScreen.storyboard */,
 				BB33B0531C83789DCBB38E9F /* AppDelegate.swift */,
 				BB33B7BA643C93B4D0444FA8 /* Main.storyboard */,
-				BB33BDBDB69111BD19368734 /* ViewController.swift */,
+				BB33BDBDB69111BD19368734 /* CalculatorViewController.swift */,
 				30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */,
 				30EAF2EC1E51336100CE1E15 /* Selection.swift */,
+				8A8CDF1B1E568E8500AB829F /* Defaults.swift */,
 			);
 			name = Homework4;
 			path = Homework2;
@@ -230,11 +233,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				30EAF2ED1E51336100CE1E15 /* Selection.swift in Sources */,
+				8A8CDF1C1E568E8500AB829F /* Defaults.swift in Sources */,
 				8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */,
 				8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */,
 				BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */,
 				30EE04AB1E5113DF009BDB3B /* SettingsViewController.swift in Sources */,
-				BB33BE5A2D03FF9A29E09F3D /* ViewController.swift in Sources */,
+				BB33BE5A2D03FF9A29E09F3D /* CalculatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

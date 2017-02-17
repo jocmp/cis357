@@ -8,21 +8,23 @@ protocol SettingsViewControllerDelegate {
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var picker: UIPickerView!
-    var options: [String] = [String]()
-    var optionsDistance: Selection = Selection(dataSet:["Kilometers", "Miles"])
-    var optionsBearing: Selection = Selection(dataSet:["Degrees", "Mils"])
-    var distanceSelected:Bool = true
     var delegate: SettingsViewControllerDelegate?
     
+    var distance: String?
+    var bearing: String?
+    
+    var options = [String]()
+    
+    var optionsDistance: Selection = Selection(dataSet:["kilometers", "miles"])
+    var optionsBearing: Selection = Selection(dataSet:["degrees", "mils"])
+
     @IBAction func selectDistance(_ sender: Any) {
-        distanceSelected = true
-        setOptions(Options:optionsDistance)
+        setOptions(options: optionsDistance)
         picker.isHidden = false
     }
     
     @IBAction func selectBearing(_ sender: Any) {
-        distanceSelected = false
-        setOptions(Options:optionsBearing)
+        setOptions(options: optionsBearing)
         picker.isHidden = false
     }
     
@@ -34,13 +36,17 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func save(_ sender: Any) {
+        Defaults.setBearing(bearing: optionsBearing.selectedUnit())
+        Defaults.setDistance(distance: optionsDistance.selectedUnit())
+        
         if let d = self.delegate {
             d.settingsChanged(distanceUnits: optionsDistance.selectedUnit(), bearingUnits: optionsBearing.selectedUnit())
         }
+        
         dismissView()
     }
     
-    func setOptions(Options o:Selection){
+    func setOptions(options o:Selection){
         options.removeAll()
         options.append(contentsOf: o.dataSet)
         picker.reloadAllComponents()
@@ -48,7 +54,7 @@ class SettingsViewController: UIViewController {
     }
     
     func dismissView(){
-        self.dismiss(animated:true, completion:nil)
+        dismiss(animated:true, completion:nil)
     }
 
     override func viewDidLoad() {
@@ -60,52 +66,48 @@ class SettingsViewController: UIViewController {
         
         dismissPicker()
         
-        btnDistance.setTitle(self.optionsDistance.dataSet[0], for: UIControlState.normal)
-        btnBearing.setTitle(self.optionsBearing.dataSet[0], for: UIControlState.normal)
+        if let distance = distance {
+            btnDistance.setTitle(distance.capitalized, for: UIControlState.normal)
+            let selectedIndex = distance == optionsDistance.dataSet[0] ? 0 : 1
+            optionsDistance.selectedIndex = selectedIndex
+        }
+        
+        if let bearing = bearing {
+            btnBearing.setTitle(bearing.capitalized, for: UIControlState.normal)
+            let selectedIndex = bearing == optionsBearing.dataSet[0] ? 0 : 1
+            optionsBearing.selectedIndex = selectedIndex
+        }
         
         self.picker.delegate = self
         self.picker.dataSource = self
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
     func dismissPicker(){
         picker.isHidden = true
     }
-
 }
 
 extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate {
-    // The number of columns of data
     
     func numberOfComponents(in: UIPickerView) -> Int{
         return 1
     }
     
-    // The number of rows of data
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        return self.options.count
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return options.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        
-        return self.options[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return options[row]
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        if distanceSelected {
-            btnDistance.setTitle(self.options[row], for: UIControlState.normal)
-            self.optionsDistance.selectedIndex = row
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if options[0] == optionsDistance.dataSet[0] {
+            btnDistance.setTitle(options[row], for: UIControlState.normal)
+            optionsDistance.selectedIndex = row
         } else {
-            btnBearing.setTitle(self.options[row], for: UIControlState.normal)
-            self.optionsBearing.selectedIndex = row
+            btnBearing.setTitle(options[row], for: UIControlState.normal)
+            optionsBearing.selectedIndex = row
         }
     }
 }

@@ -1,12 +1,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, SettingsViewControllerDelegate {
-
-    enum Defaults {
-        static let distance = "0.00 kilometers"
-        static let bearing = "0.00 degrees"
-    }
+class CalculatorViewController: UIViewController, SettingsViewControllerDelegate {
     
     @IBOutlet weak var currentLatitude: DecimalMinusTextField!
     @IBOutlet weak var currentLongitude: DecimalMinusTextField!
@@ -17,8 +12,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
     
-    var bearingUnit = CLLocation.Unit(unit: "degrees")
-    var distanceUnit = CLLocation.Unit(unit: "kilometers")
+    var bearingUnit = CLLocation.Unit(unit: Defaults.bearing())
+    var distanceUnit = CLLocation.Unit(unit: Defaults.distance())
     
     func settingsChanged(distanceUnits: String, bearingUnits: String) {
         distanceUnit = CLLocation.Unit(unit: distanceUnits)
@@ -32,6 +27,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         let detectTouch = UITapGestureRecognizer(target: self, action:
             #selector(dismissKeyboard))
         view.addGestureRecognizer(detectTouch)
+        
+        resetResultLabels()
         
         currentLatitude.delegate = self
         currentLongitude.delegate = self
@@ -54,8 +51,12 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         destinationLatitude.text = "43.077303"
         destinationLongitude.text = "-85.993860"
         
-        distanceLabel.text = Defaults.distance
-        bearingLabel.text = Defaults.bearing
+        resetResultLabels()
+    }
+    
+    func resetResultLabels() {
+        distanceLabel.text = "0.00 \(Defaults.distance())"
+        bearingLabel.text = "0.00 \(Defaults.bearing())"
     }
     
     @IBAction func calculatePressed(_ sender: Any) {
@@ -90,17 +91,18 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         return String(format:"%.2f", calculation)
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSettings" {
             if let destination = segue.destination.childViewControllers[0] as? SettingsViewController {
                 destination.delegate = self
+                destination.bearing = bearingUnit.unit
+                destination.distance = distanceUnit.unit
             }
         }
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension CalculatorViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
