@@ -1,2 +1,2 @@
-# cis357
+# CIS 357
 Mobile apps assignments and projects
