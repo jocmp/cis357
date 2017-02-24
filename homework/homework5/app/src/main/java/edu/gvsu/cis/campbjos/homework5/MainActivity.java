@@ -1,4 +1,4 @@
-package edu.gvsu.cis.campbjos.homework3;
+package edu.gvsu.cis.campbjos.homework5;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 
-import edu.gvsu.cis.campbjos.homework3.widget.CoordinateLinearLayout;
+import edu.gvsu.cis.campbjos.homework5.widget.CoordinateLinearLayout;
 
-import static edu.gvsu.cis.campbjos.homework3.SettingsActivity.*;
+import static edu.gvsu.cis.campbjos.homework5.SettingsActivity.*;
 import static java.math.RoundingMode.HALF_EVEN;
 
 /**

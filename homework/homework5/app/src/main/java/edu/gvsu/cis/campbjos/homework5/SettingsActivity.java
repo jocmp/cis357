@@ -1,4 +1,4 @@
-package edu.gvsu.cis.campbjos.homework3;
+package edu.gvsu.cis.campbjos.homework5;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -10,8 +10,8 @@ import android.widget.Spinner;
 import java.util.Arrays;
 import java.util.List;
 
-import static edu.gvsu.cis.campbjos.homework3.MainActivity.BEARING_UNITS;
-import static edu.gvsu.cis.campbjos.homework3.MainActivity.DISTANCE_UNITS;
+import static edu.gvsu.cis.campbjos.homework5.MainActivity.BEARING_UNITS;
+import static edu.gvsu.cis.campbjos.homework5.MainActivity.DISTANCE_UNITS;
 public class SettingsActivity extends AppCompatActivity {
 
     private Spinner spinnerBearing;

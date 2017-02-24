@@ -1,4 +1,4 @@
-package edu.gvsu.cis.campbjos.homework3.widget;
+package edu.gvsu.cis.campbjos.homework5.widget;
 
 import android.content.Context;
 import android.location.Location;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import edu.gvsu.cis.campbjos.homework3.R;
+import edu.gvsu.cis.campbjos.homework5.R;
 
 /**
  * @author Derrick Bentley
