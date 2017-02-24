@@ -21,6 +21,15 @@ class CalculatorViewController: UIViewController, SettingsViewControllerDelegate
         calculate()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    
+        view.backgroundColor = BACKGROUND_COLOR
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

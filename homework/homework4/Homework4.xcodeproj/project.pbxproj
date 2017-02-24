@@ -10,6 +10,9 @@
 		30EAF2ED1E51336100CE1E15 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAF2EC1E51336100CE1E15 /* Selection.swift */; };
 		30EE04AB1E5113DF009BDB3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */; };
 		8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */; };
+		8A3DABBC1E60A17500DDAB70 /* GeographicalCalculatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DABBB1E60A17500DDAB70 /* GeographicalCalculatorTextField.swift */; };
+		8A3DABBE1E60A5AD00DDAB70 /* GeographicalCalculatorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DABBD1E60A5AD00DDAB70 /* GeographicalCalculatorLabel.swift */; };
+		8A3DABC01E60A82A00DDAB70 /* GVSUSyncrhonizedConcurrentRecordSubmissionEventHandledPolymorphicImplemenationUserInteraceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DABBF1E60A82A00DDAB70 /* GVSUSyncrhonizedConcurrentRecordSubmissionEventHandledPolymorphicImplemenationUserInteraceButton.swift */; };
 		8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */; };
 		8A8CDF1C1E568E8500AB829F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CDF1B1E568E8500AB829F /* Defaults.swift */; };
 		BB33B12C1D41DA6547BCCCCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB33B1F30BDCE2344D81B93F /* LaunchScreen.storyboard */; };
@@ -41,6 +44,9 @@
 		30EAF2EC1E51336100CE1E15 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8A0D8AC31E3D7A6F001182A6 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
+		8A3DABBB1E60A17500DDAB70 /* GeographicalCalculatorTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeographicalCalculatorTextField.swift; sourceTree = "<group>"; };
+		8A3DABBD1E60A5AD00DDAB70 /* GeographicalCalculatorLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeographicalCalculatorLabel.swift; sourceTree = "<group>"; };
+		8A3DABBF1E60A82A00DDAB70 /* GVSUSyncrhonizedConcurrentRecordSubmissionEventHandledPolymorphicImplemenationUserInteraceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVSUSyncrhonizedConcurrentRecordSubmissionEventHandledPolymorphicImplemenationUserInteraceButton.swift; sourceTree = "<group>"; };
 		8A5B4A281E3DA35700ABC38C /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 		8A8CDF1B1E568E8500AB829F /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		BB33B0531C83789DCBB38E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +99,9 @@
 				30EE04AA1E5113DF009BDB3B /* SettingsViewController.swift */,
 				30EAF2EC1E51336100CE1E15 /* Selection.swift */,
 				8A8CDF1B1E568E8500AB829F /* Defaults.swift */,
+				8A3DABBB1E60A17500DDAB70 /* GeographicalCalculatorTextField.swift */,
+				8A3DABBD1E60A5AD00DDAB70 /* GeographicalCalculatorLabel.swift */,
+				8A3DABBF1E60A82A00DDAB70 /* GVSUSyncrhonizedConcurrentRecordSubmissionEventHandledPolymorphicImplemenationUserInteraceButton.swift */,
 			);
 			path = Homework4;
 			sourceTree = "<group>";
@@ -232,8 +241,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				30EAF2ED1E51336100CE1E15 /* Selection.swift in Sources */,
+				8A3DABBE1E60A5AD00DDAB70 /* GeographicalCalculatorLabel.swift in Sources */,
+				8A3DABBC1E60A17500DDAB70 /* GeographicalCalculatorTextField.swift in Sources */,
 				8A8CDF1C1E568E8500AB829F /* Defaults.swift in Sources */,
 				8A5B4A291E3DA35700ABC38C /* CLLocationExtensions.swift in Sources */,
+				8A3DABC01E60A82A00DDAB70 /* GVSUSyncrhonizedConcurrentRecordSubmissionEventHandledPolymorphicImplemenationUserInteraceButton.swift in Sources */,
 				8A0D8AC41E3D7A6F001182A6 /* DecimalMinusTextField.swift in Sources */,
 				BB33B2AA1BEBD777128FDFBE /* AppDelegate.swift in Sources */,
 				30EE04AB1E5113DF009BDB3B /* SettingsViewController.swift in Sources */,

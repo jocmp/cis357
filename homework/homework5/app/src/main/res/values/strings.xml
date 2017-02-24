@@ -12,4 +12,5 @@
 
     <string name="degrees">%1$.2f degrees</string>
     <string name="kilometers">%1$.2f kilometers</string>
+    <string name="settings">Settings</string>
 </resources>
