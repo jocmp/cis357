@@ -58,4 +58,9 @@ public class CoordinateLinearLayout extends LinearLayout {
         }
         return Location.convert(editText.getText().toString());
     }
+
+    public void setValues(String latitude, String longitude){
+        this.latitudeText.setText(latitude);
+        this.longitudeText.setText(longitude);
+    }
 }

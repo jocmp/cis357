@@ -1,12 +1,13 @@
 package edu.gvsu.cis.campbjos.homework3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 
 import edu.gvsu.cis.campbjos.homework3.widget.CoordinateLinearLayout;
 
+import static edu.gvsu.cis.campbjos.homework3.SettingsActivity.*;
 import static java.math.RoundingMode.HALF_EVEN;
 
 /**
@@ -30,16 +32,28 @@ public class MainActivity extends AppCompatActivity {
     private TextView bearingText;
     private TextView distanceText;
 
+    static final String DISTANCE_UNITS = "distanceUnits";
+    static final String BEARING_UNITS = "bearingUnits";
+    static final int SETTINGS_RESULT_CODE = 15;
+
+    private String selectedDistance;
+    private String selectedBearing;
+
+    public MainActivity() {
+        super();
+        selectedDistance = "Kilometers";
+        selectedBearing = "Degrees";
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Geo Locator");
+        setSupportActionBar(toolbar);
 
         sourceCoordinates = (CoordinateLinearLayout) findViewById(R.id.sourceCoordinates);
         destinationCoordinates = (CoordinateLinearLayout) findViewById(R.id.destinationCoordinates);
-
 
         bindResultText();
         bindButtons();
@@ -47,9 +61,29 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            intent.putExtra(SELECTED_BEARING, selectedBearing);
+            intent.putExtra(SELECTED_DISTANCE, selectedDistance);
+            startActivityForResult(intent, SETTINGS_RESULT_CODE);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == SETTINGS_RESULT_CODE) {
+            selectedDistance = data.getStringExtra(DISTANCE_UNITS);
+            selectedBearing = data.getStringExtra(BEARING_UNITS);
+            calculate();
+        }
     }
 
     private void bindResultText() {
@@ -72,11 +106,26 @@ public class MainActivity extends AppCompatActivity {
         Location source = sourceCoordinates.getLocation();
         Location destination = destinationCoordinates.getLocation();
 
-        float distance = round(source.distanceTo(destination)) / 1000.0f;
-        float bearing = source.bearingTo(destination);
+        float distance = getDistanceBetween(source, destination);
+        float bearing = getBearingBetween(source, destination);
 
-        bearingText.setText(getString(R.string.degrees, bearing));
-        distanceText.setText(getString(R.string.kilometers, distance));
+        bearingText.setText(getString(R.string.formattedUnit, bearing, selectedBearing));
+        distanceText.setText(getString(R.string.formattedUnit, distance, selectedDistance));
+    }
+
+    private float getBearingBetween(Location source, Location destination) {
+        float bearingInDegrees = source.bearingTo(destination);
+        if (selectedBearing.equals("Mils"))
+            bearingInDegrees *= 17.777777777778f;
+        return round(bearingInDegrees);
+    }
+
+    private float getDistanceBetween(Location source, Location destination) {
+        float distanceInMeters = source.distanceTo(destination);
+        float resultInSelectedUnit = distanceInMeters / 1000f;
+        if (selectedDistance.equals("Miles"))
+            resultInSelectedUnit *= 0.621371f;
+        return round(resultInSelectedUnit);
     }
 
     private float round(float value) {
@@ -93,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetResults() {
-        bearingText.setText(getString(R.string.degrees, 0f));
-        distanceText.setText(getString(R.string.kilometers, 0f));
+        bearingText.setText(getString(R.string.formattedUnit, 0f, selectedBearing));
+        distanceText.setText(getString(R.string.formattedUnit, 0f, selectedDistance));
     }
 
     private void hideKeyboard() {
